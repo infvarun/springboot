@@ -1,0 +1,21 @@
+package com.saga.choreography.service;
+
+
+import com.saga.choreography.entity.Products;
+import com.saga.choreography.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ProductService {
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    public List<Products> getAllProducts() {
+        return (List<Products>) productRepository.findProductsByPriceLowerThan();
+    }
+}
+
